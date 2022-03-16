@@ -1,0 +1,25 @@
+﻿<div id="htlfndr-sing-up">
+    <div class="htlfndr-content-card">
+        <div class="htlfndr-card-title clearfix">
+            <h2 class="pull-left">Üye Ol</h2>
+        </div>
+        @using (Html.BeginForm("Register", "User", FormMethod.Post, new { id = "htlfndr-sing-up-form" }))
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>İsim</h4><input class="htlfndr-input" id="name" name="name" type="text">
+                </div>
+                <div class="col-md-6">
+                    <h4>Soyisim</h4><input class="htlfndr-input" id="surname" name="surname" type="text">
+                </div>
+            </div>
+                <h4>E-mail adresi</h4><input class="htlfndr-input" id="Mail" name="Mail" type="text">
+                <h4>Şifre</h4><input class="htlfndr-input" id="password" name="password" type="password">
+                <h4>Şifreyi Onayla</h4><input class="htlfndr-input" id="htlfndr-sing-up-pass-conf" name="htlfndr-sing-up-pass-conf" type="password">
+                <div class="clearfix">
+                    <span>Zaten hesabım var<a data-target="#htlfndr-sing-in" data-toggle="modal" href="#"><span>Giriş Yap</span></a></span>
+                    <input class="pull-right" type="submit" value="Kaydol">
+                </div>
+        }
+    </div>
+</div>

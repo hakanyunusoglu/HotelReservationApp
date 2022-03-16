@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Yonetim.cshtml";
+}
+@model HotelReservationNew.Areas.Yonetim.Models.ManagementView.ManageView
+
+
+<div class="container-fluid">
+    <!-- Begin page heading -->
+    <h1 class="page-heading">Form example <small>Details</small></h1>
+    <!-- End page heading -->
+    <!-- Begin breadcrumb -->
+    <ol class="breadcrumb default square rsaquo sm">
+        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li><a href="#fakelink">Reservation Detail</a></li>
+        <li class="active">Details</li>
+    </ol>
+    <!-- End breadcrumb -->
+    <!-- BEGIN FORM WIZARD -->
+    <h4 class="small-title">Reservation Detail</h4>
+
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            @using (Html.BeginForm("EditReservation", "yReservations", FormMethod.Post))
+            {
+                foreach (HotelReservationNew.Models.Data.Reservation item in Model.Reservations)
+                {
+                    <div class="the-box">
+                        <h4 class="small-title">SIMPLE LOGIN FORM</h4>
+                        <form role="form">
+                            <div class="form-group">
+                                <label>Reservation ID</label>
+                                <input type="text" readonly class="form-control" value="@item.ID" name="ID" id="ID" placeholder="@item.ID">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Reserved Date Begin</label>
+                                <input type="text" class="form-control" value="@item.ReserveDateBegin" name="ReserveDateBegin" id="datepicker1">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Reserved Date End</label>
+                                <input type="text" class="form-control" value="@item.ReserveDateEnd" name="ReserveDateEnd" id="datepicker2">
+                            </div>
+                            <div class="form-group">
+                                <label>Name Surname</label>
+                                <input type="text" readonly class="form-control" placeholder="@item.User.Name @item.User.Surname">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="text" readonly class="form-control" placeholder="@item.User.PhoneNumber">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Order Date</label>
+                                <input type="text" readonly class="form-control" placeholder="@item.OrderDate">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Room Name</label>
+                                <input type="text" readonly class="form-control" placeholder="@item.Room.Name">
+                            </div>
+
+                          
+
+
+                            <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i>Güncelle</button>
+                        </form>
+                    </div>
+
+                }
+            }
+            <!-- /.the-box -->
+        </div><!-- /.col-sm-6 -->
+        <!-- /.col-sm-6 -->
+    </div><!-- /.row -->
+
+
+
+</div>

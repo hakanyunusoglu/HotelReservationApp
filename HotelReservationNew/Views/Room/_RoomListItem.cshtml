@@ -1,0 +1,37 @@
+﻿@model IEnumerable<HotelReservationNew.Models.Data.Room>
+
+ 
+@foreach (HotelReservationNew.Models.Data.Room item in Model)
+{
+
+    <div class="col-md-4 htlfndr-hotel-post-wrapper">
+
+        <div class="htlfndr-hotel-post">
+            <a class="htlfndr-hotel-thumbnail" href="@Url.Action("Detail","Room",new { @id=item.ID})"><img alt="pic" src="@item.CoverImage"></a>
+            <div class="htlfndr-hotel-description">
+                <div class="htlfndr-description-content">
+                    <h2 class="htlfndr-entry-title"><a href="@Url.Action("Detail","Room",new {@id=item.ID})">@item.Name</a></h2>
+                    <div class="htlfndr-rating-stars" data-rating="5">
+                        <i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;
+                      
+                    </div>
+                    @if (item.Availability == true)
+                    {
+                        <h5 class="htlfndr-hotel-location"><a href="#">Oda durumu : Müsait</a></h5>
+                    }
+                    else
+                    {
+                        <h5 class="htlfndr-hotel-location"><a href="#"><i class="fa fa-map-marker"></i>Oda durumu : Müsait değil</a></h5>
+                    }
+
+
+
+                </div><a class="htlfndr-select-hotel-button" href="@Url.Action("Detail","Room",new {@id=item.ID})" role="button">Incele</a>
+                <div class="htlfndr-hotel-price">
+                    <span class="htlfndr-from">from</span> <span class="htlfndr-cost"><i class="fa fa-try"></i> @item.Price</span> <span class="htlfndr-per-night">per night</span><span class="cost">100</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

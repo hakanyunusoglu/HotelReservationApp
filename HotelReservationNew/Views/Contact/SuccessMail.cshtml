@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Basarili";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container">
+    <main class="htlfndr-main-content" id="htlfndr-main-content" role="main">
+        <article class="htlfndr-thanks-page text-center">
+            <h1>Teşekkürler!</h1>
+            <h3>   <a href="@Url.Action("Index","Home")"><span class="htlfndr-logo-text">Hakan <span>Hotel'e</span></span></a> Hoşgeldiniz !</h3><img alt="mail" src="~/images/mail_icon.jpg">
+            <div>
+                <h4>Bizimle iletişime geçtiğiniz için teşekkür ederiz. En yakın sürede geri dönüş yapacağımızı bildirmek isteriz!</h4>
+            </div><a class="htlfndr-more-link text-center" href="@Url.Action("Index","Home")">Anasayfa</a> 
+        </article>
+    </main>
+</div>

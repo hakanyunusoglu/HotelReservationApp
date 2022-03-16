@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@model HotelReservationNew.Models.ViewModels.HomeViewModel
+
+<div class="container">
+    <div class="htlfndr-steps">
+        <ul class="htlfndr-progress">
+            <li style="width: 33%;"><span class="htlfndr-step-number">1</span> <span class="htlfndr-step-description" style="display: inline-block;">ODALAR</span></li>
+            <li style="width: 33%;"><span class="htlfndr-step-number">2</span> <span class="htlfndr-step-description" style="display: inline-block;">DETAY</span></li>
+            <li class="htlfndr-active-step" style="width: 33%;"><span class="htlfndr-step-number">3</span> <span class="htlfndr-step-description" style="display: inline-block;">ÖDEME</span></li>
+        </ul>
+    </div>
+    <div class="row htlfndr-payment-page">
+        <main class="col-sm-12 col-md-8 col-lg-8" id="htlfndr-main-content" role="main">
+            <form action="thanks-page.html" id="htlfndr-payment-form" method="post" name="htlfndr-payment-form">
+
+                <section class="htlfndr-form-section">
+                    <header>
+                        <h2 class="htlfndr-form-section-title">Kişisel <span>bilgileriniz</span></h2>
+                        <h5 class="htlfndr-form-section-description"><a data-target="#htlfndr-sing-in" data-toggle="modal" href="index.htm#"><span class="htlfndr-sing-in-link">Bilgileri güncelle</span></a> Kişisel bilgileriniz değiştirmek için tıklayınız.</h5>
+                    </header>
+                    <hr>
+                    <div class="htlfndr-form-block">
+
+                        @foreach (HotelReservationNew.Models.Data.User item in Model.Users)
+                        {
+                            <div class="htlfndr-form-block-inner">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="htlfndr-required htlfndr-top-label" for="htlfndr-personal-name">İsim</label>
+                                        <input class="htlfndr-input" id="htlfndr-personal-name" readonly type="text" value="@item.Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="htlfndr-required htlfndr-top-label" for="htlfndr-personal-middle-name">Soyisim</label>
+                                        <input class="htlfndr-input" id="htlfndr-personal-middle-name" readonly type="text" value="@item.Surname">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="htlfndr-required htlfndr-top-label" for="htlfndr-personal-middle-name">Telefon</label>
+                                        <input class="htlfndr-input" id="htlfndr-personal-middle-name" readonly type="text" value="@item.PhoneNumber">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="htlfndr-required htlfndr-top-label" for="htlfndr-personal-middle-name">Adres</label>
+                                        <input class="htlfndr-input" id="htlfndr-personal-middle-name" readonly type="text" value="@item.Adres">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="htlfndr-required htlfndr-top-label" for="htlfndr-personal-middle-name">İl</label>
+                                        <input class="htlfndr-input" id="htlfndr-personal-middle-name" readonly type="text" value="@item.Country">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="htlfndr-required htlfndr-top-label" for="htlfndr-personal-middle-name">İlçe</label>
+                                        <input class="htlfndr-input" id="htlfndr-personal-middle-name" readonly type="text" value="@item.Region">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+
+                    </div>
+                </section>
+                @*<section class="htlfndr-form-section">
+                        <header>
+                            <h2 class="htlfndr-form-section-title">Check-in <span>Check-out</span></h2>
+                            <h5 class="htlfndr-form-section-description">Lütfen check-in ve check-out tarihlerinizi belirtiniz.</h5>
+                        </header>
+                        <hr>
+                        <div class="htlfndr-form-block">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="htlfndr-float-input first-float">
+                                        <label class="htlfndr-input-label" for="htlfndr-date-in">Check in</label>
+                                        <div class="htlfndr-input-wrapper" id="htlfndr-input-date-in">
+                                            <input class="search-hotel-input" id="htlfndr-date-in" onclick="calendar()" name="htlfndr-date-in" type="text"><button class="htlfndr-clear-datepicker" type="button"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="htlfndr-float-input">
+                                        <label class="htlfndr-input-label" for="htlfndr-date-out">Check out</label>
+                                        <div class="htlfndr-input-wrapper" id="htlfndr-input-date-out">
+                                            <input class="search-hotel-input" id="htlfndr-date-out" onclick="calendar()" name="htlfndr-date-out" type="text">
+                                            <button class="htlfndr-clear-datepicker" type="button"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>*@
+
+
+                <section class="htlfndr-form-section htlfndr-form-review-section">
+                    @foreach (HotelReservationNew.Models.Data.Room item in Model.Rooms)
+                    {
+                        <a href="@Url.Action("AddReservation","Room",new { @id=item.ID})" style="cursor:pointer"><input class="htlfndr-payment-submit" style="cursor:pointer" value="Tamamla"></a>
+                    }
+
+                </section>
+
+
+
+            </form>
+        </main>
+        <aside class="col-sm-12 col-md-4 col-lg-offset-1 col-lg-3 htlfndr-sidebar htlfndr-sidebar-in-right" id="htlfndr-right-sidebar" role="complementary">
+            @foreach (HotelReservationNew.Models.Data.Room item in Model.Rooms)
+            {
+                <div class="htlfndr-booking-details">
+                    <div class="widget">
+                        <div class="htlfndr-widget-main-content htlfndr-widget-padding">
+                            <h3 class="widget-title">Oda Bilgileri</h3>
+                            <div class="htlfndr-widget-block htlfndr-table-view">
+                                <div class="htlfndr-hotel-thumbnail">
+                                    <a href="@Url.Action("Detail","Room",new {@id=item.ID })"><img alt="Hotel picture" src="@item.CoverImage"></a>
+                                </div>
+                                <div class="htlfndr-hotel-info">
+                                    <a href="hotel-page-v1.html">
+                                        <h3>@item.Name</h3>
+                                    </a>
+                                    <div class="htlfndr-rating-stars">
+                                        <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i>
+                                    </div>
+                                    <p class="htlfndr-location">Hakan Hotel</p>
+                                </div>
+                            </div>
+
+                            <p class="htlfndr-total-price">Oda Fiyatı:</p>
+                            <div class="htlfndr-hotel-price">
+                                <span class="htlfndr-cost"><i class="fa fa-try"></i> @item.Price</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
+        </aside>
+
+    </div>
+</div>

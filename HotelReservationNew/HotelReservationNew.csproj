@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A31AE5AC-1235-4F71-81DB-EBACB63FF306}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotelReservationNew</RootNamespace>
+    <AssemblyName>HotelReservationNew</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Yonetim\assets\css\bootstrap.min.css" />
+    <Content Include="Areas\Yonetim\assets\css\style-responsive.css" />
+    <Content Include="Areas\Yonetim\assets\css\style.css" />
+    <Content Include="Areas\Yonetim\assets\img\-text.png" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-1.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-10.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-11.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-12.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-13.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-14.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-15.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-16.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-17.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-18.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-19.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-2.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-20.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-21.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-22.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-23.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-24.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-25.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-3.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-4.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-5.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-6.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-7.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-8.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\avatar\avatar-9.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\img-file\audio-file.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\img-file\document-file.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\img-file\video-file.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\logo-login.png" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-1.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-10.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-11.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-12.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-13.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-14.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-15.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-16.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-17.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-18.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-19.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-2.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-20.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-21.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-22.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-3.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-4.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-5.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-6.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-7.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-8.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\large\img-9.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-1.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-10.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-11.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-12.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-13.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-14.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-15.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-16.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-17.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-18.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-19.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-2.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-20.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-21.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-22.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-3.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-4.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-5.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-6.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-7.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-8.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\medium\img-9.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-1.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-10.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-11.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-12.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-13.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-14.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-15.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-16.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-17.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-18.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-19.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-2.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-20.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-21.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-22.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-3.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-4.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-5.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-6.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-7.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-8.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\small\img-9.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\wide\img-1.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\wide\img-2.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\wide\img-3.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\photo\wide\img-4.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\sentir-agency.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\sentir-coming-soon.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\sentir-logo-primary.png" />
+    <Content Include="Areas\Yonetim\assets\img\sentir-logo.png" />
+    <Content Include="Areas\Yonetim\assets\img\sentir-onepage.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\shop\img-shop-1.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\shop\img-shop-2.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\shop\img-shop-3.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\shop\img-shop-4.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\shop\img-shop-5.jpg" />
+    <Content Include="Areas\Yonetim\assets\img\shop\img-shop-6.jpg" />
+    <Content Include="Areas\Yonetim\assets\js\apps.js" />
+    <Content Include="Areas\Yonetim\assets\js\bootstrap.min.js" />
+    <Content Include="Areas\Yonetim\assets\js\demo-panel-login.js" />
+    <Content Include="Areas\Yonetim\assets\js\demo-panel.js" />
+    <Content Include="Areas\Yonetim\assets\js\full-calendar.js" />
+    <Content Include="Areas\Yonetim\assets\js\jquery.min.js" />
+    <Content Include="Areas\Yonetim\assets\js\toastr-demo.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\backstretch\jquery.backstretch.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\c3-chart\c3.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\c3-chart\c3.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\c3-chart\d3.v3.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\c3-chart\example.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\chosen\chosen-sprite.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\chosen\chosen.jquery.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\chosen\chosen.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\datatable\css\bootstrap.datatable.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\datatable\images\sort_asc.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\datatable\images\sort_both.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\datatable\images\sort_desc.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\datatable\js\bootstrap.datatable.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\datatable\js\jquery.dataTables.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\datepicker\datepicker.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\easypie-chart\easypiechart.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\easypie-chart\example.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\easypie-chart\jquery.easypiechart.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\flot-chart\example.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\flot-chart\jquery.flot.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\flot-chart\jquery.flot.resize.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\flot-chart\jquery.flot.selection.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\flot-chart\jquery.flot.stack.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\flot-chart\jquery.flot.time.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\flot-chart\jquery.flot.tooltip.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Yonetim\assets\plugins\fullcalendar\fullcalendar\fullcalendar.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\fullcalendar\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\fullcalendar\fullcalendar\fullcalendar.print.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\fullcalendar\lib\jquery-ui.custom.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\icheck.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\all.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\aero%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\aero.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\aero.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\blue%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\blue.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\blue.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\flat%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\flat.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\flat.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\green%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\green.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\green.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\grey%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\grey.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\grey.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\orange%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\orange.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\orange.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\pink%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\pink.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\pink.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\purple%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\purple.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\purple.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\red%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\red.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\red.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\yellow%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\yellow.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\yellow.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\flat\_all.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\futurico\futurico%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\futurico\futurico.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\futurico\futurico.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\aero.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\blue.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\green.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\grey.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\line%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\line.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\line.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\orange.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\pink.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\purple.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\red.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\yellow.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\line\_all.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\aero%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\aero.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\aero.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\blue%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\blue.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\blue.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\green%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\green.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\green.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\grey%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\grey.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\grey.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\minimal%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\minimal.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\minimal.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\orange%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\orange.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\orange.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\pink%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\pink.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\pink.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\purple%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\purple.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\purple.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\red%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\red.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\red.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\yellow%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\yellow.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\yellow.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\minimal\_all.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\polaris\polaris%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\polaris\polaris.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\polaris\polaris.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\aero%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\aero.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\aero.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\blue%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\blue.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\blue.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\green%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\green.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\green.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\grey%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\grey.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\grey.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\orange%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\orange.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\orange.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\pink%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\pink.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\pink.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\purple%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\purple.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\purple.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\red%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\red.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\red.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\square%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\square.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\square.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\yellow%402x.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\yellow.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\yellow.png" />
+    <Content Include="Areas\Yonetim\assets\plugins\icheck\skins\square\_all.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\jquery-knob\excanvas.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\jquery-knob\jquery.knob.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\jquery-knob\knob.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\magnific-popup\magnific-popup.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\markdown\bootstrap-markdown.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\markdown\bootstrap-markdown.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\markdown\markdown.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\markdown\to-markdown.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\mask\jquery.mask.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\morris-chart\example.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\morris-chart\morris.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\morris-chart\morris.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\morris-chart\raphael.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\newsticker\jquery.newsTicker.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\nicescroll\jquery.nicescroll.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\owl-carousel\owl.carousel.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\owl-carousel\owl.theme.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\owl-carousel\owl.transitions.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\prettify\prettify.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\prettify\prettify.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\retina\retina.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\salvattore\salvattore.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\salvattore\salvattore.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\skycons\skycons.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\slider\bootstrap-slider.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\slider\slider.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\summernote\summernote.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\summernote\summernote.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\timepicker\bootstrap-timepicker.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\toastr\toastr.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\toastr\toastr.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\validator\bootstrapValidator.min.css" />
+    <Content Include="Areas\Yonetim\assets\plugins\validator\bootstrapValidator.min.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\validator\example.js" />
+    <Content Include="Areas\Yonetim\assets\plugins\weather-icon\css\weather-icons.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\ie.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\select-style.css" />
+    <Content Include="css\style.css" />
+    <Content Include="fonts\Font_Awesome\fontawesome-webfont.woff2-v=4.3.0.htm" />
+    <Content Include="fonts\Glyphicons_Halflings\glyphicons-halflings-regular.woff2.htm" />
+    <Content Include="fonts\Montserrat\montserrat-regular-webfont.eot" />
+    <Content Include="fonts\Montserrat\montserrat-regular-webfont.woff" />
+    <Content Include="fonts\Montserrat\montserrat-regular-webfont.ttf" />
+    <Content Include="Areas\Yonetim\Views\web.config" />
+    <Content Include="Areas\Yonetim\Views\Shared\_Yonetim.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yHome\Index.cshtml" />
+    <Content Include="Areas\Yonetim\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Yonetim\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Yonetim\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Yonetim\assets\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Yonetim\assets\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Yonetim\assets\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Yonetim\assets\plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Yonetim\assets\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Yonetim\assets\plugins\weather-icon\font\weathericons-regular-webfont.woff" />
+    <Content Include="Areas\Yonetim\Views\yReservations\Index.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yMailbox\Index.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yUsers\Index.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yRooms\Index.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yRooms\Gallery.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yReservations\Edit.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yRooms\AddRoom.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yRooms\EditRoom.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yLogin\Index.cshtml" />
+    <Content Include="Areas\Yonetim\Views\yLogin\Login.cshtml" />
+    <None Include="fonts\Montserrat\montserrat-regular-webfont.woff2" />
+    <Content Include="fonts\Open_Sans\bold\opensans-bold-webfont.woff" />
+    <Content Include="fonts\Open_Sans\bold\opensans-bold-webfont.ttf" />
+    <None Include="fonts\Open_Sans\bold\opensans-bold-webfont.woff2" />
+    <Content Include="fonts\Open_Sans\light\opensans-light-webfont.woff" />
+    <Content Include="fonts\Open_Sans\light\opensans-light-webfont.ttf" />
+    <None Include="fonts\Open_Sans\light\opensans-light-webfont.woff2" />
+    <Content Include="fonts\Open_Sans\opensans-regular-webfont.woff" />
+    <Content Include="fonts\Open_Sans\opensans-regular-webfont.ttf" />
+    <Content Include="fonts\Open_Sans\light\opensans-light-webfont.eot" />
+    <None Include="fonts\Open_Sans\opensans-regular-webfont.woff2" />
+    <Content Include="fonts\Roboto\light\roboto-light-webfont.woff2.htm" />
+    <Content Include="fonts\Roboto\roboto-regular-webfont.woff2.htm" />
+    <Content Include="fonts\Source_Code_Pro\sourcecodepro-regular-webfont.woff2.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="images\1158353197.jpg" />
+    <Content Include="images\15098547324_e583a06f71_k.jpg" />
+    <Content Include="images\15471603459_c78150330b_k.jpg" />
+    <Content Include="images\16293832454_d7d8573af2_k.jpg" />
+    <Content Include="images\16415688600_a030e3e8dd_k.jpg" />
+    <Content Include="images\16635965046_b2d93ce3c2_k.jpg" />
+    <Content Include="images\16660516681_8e0fcb131f_k.jpg" />
+    <Content Include="images\16681976888_1539c483aa_k.jpg" />
+    <Content Include="images\29572el_chaise_longue_o_cheslon.jpg" />
+    <Content Include="images\29775-vannaya-komnata-plastikom.jpg" />
+    <Content Include="images\5053563227_ee0db21ca5_b.jpg" />
+    <Content Include="images\5690083711_44634c54f8_b.jpg" />
+    <Content Include="images\83890-Web1.jpg" />
+    <Content Include="images\9552062566_5f946c2cb2_k.jpg" />
+    <Content Include="images\about-us-video.jpg" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\avatar1.png" />
+    <Content Include="images\background-world-map.png" />
+    <Content Include="images\bg_404.jpg" />
+    <Content Include="images\blockqoute.png" />
+    <Content Include="images\btn-play.png" />
+    <Content Include="images\card_img.png" />
+    <Content Include="images\category-box-1.jpg" />
+    <Content Include="images\category-box-2.jpg" />
+    <Content Include="images\category-box-3.jpg" />
+    <Content Include="images\category-box-4.jpg" />
+    <Content Include="images\category-box-5.jpg" />
+    <Content Include="images\category-box-6.jpg" />
+    <Content Include="images\default.png" />
+    <Content Include="images\hotel-4-notinclude.jpg" />
+    <Content Include="images\hotel-logo.jpg" />
+    <Content Include="images\icon-card-amex.png" />
+    <Content Include="images\icon-card-mastercard.png" />
+    <Content Include="images\icon-card-paypal.png" />
+    <Content Include="images\icon-card-visa.png" />
+    <Content Include="images\icon-date-blue.png" />
+    <Content Include="images\icon-date-in.png" />
+    <Content Include="images\icon-date-out.png" />
+    <Content Include="images\icon-flag-britain.png" />
+    <Content Include="images\icon-flag-french.png" />
+    <Content Include="images\icon-flag-german.png" />
+    <Content Include="images\icon-flag-italy.png" />
+    <Content Include="images\icon-flag-japan.png" />
+    <Content Include="images\icon-flag-russian.png" />
+    <Content Include="images\icon-flag-ukraine.png" />
+    <Content Include="images\icon-location-blue.png" />
+    <Content Include="images\icon-location-white.png" />
+    <Content Include="images\icon-location.png" />
+    <Content Include="images\icon-person-blue.png" />
+    <Content Include="images\icon-person.png" />
+    <Content Include="images\icon-submit-check.png" />
+    <Content Include="images\icon-ups-card.png" />
+    <Content Include="images\icon-ups-check.png" />
+    <Content Include="images\icon-ups-drinks.png" />
+    <Content Include="images\image_single_blog.jpg" />
+    <Content Include="images\kitchen-island1.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\mail_icon.jpg" />
+    <Content Include="images\search-form-widget-background.jpg" />
+    <Content Include="images\select_scroll.png" />
+    <Content Include="images\share_button.jpg" />
+    <Content Include="images\single_blog.jpg" />
+    <Content Include="images\slider-image-1.jpg" />
+    <Content Include="images\slider-image-2.jpg" />
+    <Content Include="images\slider-image-3.jpg" />
+    <Content Include="images\top-destination-1.jpg" />
+    <Content Include="images\top-destination-2.jpg" />
+    <Content Include="images\top-destination-3.jpg" />
+    <Content Include="images\user-picture.jpg" />
+    <Content Include="images\user2-picture.jpg" />
+    <Content Include="images\user3-picture.jpg" />
+    <Content Include="images\user4-picture.jpg" />
+    <Content Include="images\visa_card.png" />
+    <Content Include="images\visitor-avatar-1-1.jpg" />
+    <Content Include="images\visitor-avatar-1.jpg" />
+    <Content Include="images\visitor-avatar-2.jpg" />
+    <Content Include="images\visitor-avatar-3.jpg" />
+    <Content Include="images\widget-title-background.jpg" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-1.11.3.min.js" />
+    <Content Include="js\jquery-2.0.3.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery.custom-select.js" />
+    <Content Include="js\jquery.responsiveTabs.min.js" />
+    <Content Include="js\jquery.ui.touch-punch.min.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\starrr.min.js" />
+    <Content Include="js\tinysort.js" />
+    <Content Include="images\Loading.gif" />
+    <Content Include="js\Rooms.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\yHomeController.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\yLoginController.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\yMailboxController.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\yReservationsController.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\yRoomsController.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\yUsersController.cs" />
+    <Compile Include="Areas\Yonetim\Models\Attributes\_SessionLoginControl.cs" />
+    <Compile Include="Areas\Yonetim\Models\ManagementView\ManageView.cs" />
+    <Compile Include="Areas\Yonetim\Models\ManagementView\RoomVM.cs" />
+    <Compile Include="Areas\Yonetim\YonetimAreaRegistration.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703082251325_diagram1.cs" />
+    <Compile Include="Migrations\201703082251325_diagram1.Designer.cs">
+      <DependentUpon>201703082251325_diagram1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Context\HotelReservationDBContext.cs" />
+    <Compile Include="Models\Data\Admin.cs" />
+    <Compile Include="Models\Data\BaseEntity.cs" />
+    <Compile Include="Models\Data\Contact.cs" />
+    <Compile Include="Models\Data\CreditCards.cs" />
+    <Compile Include="Models\Data\Reservation.cs" />
+    <Compile Include="Models\Data\Room.cs" />
+    <Compile Include="Models\Data\RoomPicture.cs" />
+    <Compile Include="Models\Data\User.cs" />
+    <Compile Include="Models\DTO\Room\RoomOperations.cs" />
+    <Compile Include="Models\DTO\User\UserLoginVM.cs" />
+    <Compile Include="Models\DTO\User\UserRegisterVM.cs" />
+    <Compile Include="Models\Error\_SessionLoginControl.cs" />
+    <Compile Include="Models\ViewModels\HomeViewModel.cs" />
+    <Compile Include="Models\ViewModels\SearchViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\Font_Awesome\fontawesome-webfont.svg-v=4.3.0.htm-" />
+    <Content Include="fonts\Glyphicons_Halflings\glyphicons-halflings-regular.svg.htm-" />
+    <Content Include="fonts\Montserrat\montserrat-regular-webfont.svg" />
+    <Content Include="fonts\Open_Sans\bold\opensans-bold-webfont.svg" />
+    <Content Include="fonts\Open_Sans\light\opensans-light-webfont.svg" />
+    <Content Include="fonts\Open_Sans\opensans-regular-webfont.svg" />
+    <Content Include="fonts\Roboto\light\roboto-light-webfont.svg.htm-" />
+    <Content Include="fonts\Roboto\roboto-regular-webfont.svg.htm-" />
+    <Content Include="fonts\Roboto_Thin\Roboto-Thin.svg.htm-" />
+    <Content Include="fonts\Source_Code_Pro\sourcecodepro-regular-webfont.svg.htm-" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Partial\_LoggedUser.cshtml" />
+    <Content Include="Views\Shared\Partial\_SignInPartial.cshtml" />
+    <Content Include="Views\Shared\Partial\_SignUpPartial.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Shared\Partial\_NotLoginHeader.cshtml" />
+    <Content Include="Views\Shared\Partial\_RecoveryPassword.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Room\Detail.cshtml" />
+    <Content Include="Views\User\SuccessRegister.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\Shared\Partial\_ProcessMessages.cshtml" />
+    <Content Include="Views\Shared\Partial\_AddCreditCard.cshtml" />
+    <Content Include="Views\User\DeleteCreditCard.cshtml" />
+    <Content Include="Views\Room\Payment.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Contact\SuccessMail.cshtml" />
+    <Content Include="Views\Room\_RoomListItem.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="images\RoomPictures\" />
+    <Folder Include="Views\Room\scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703082251325_diagram1.resx">
+      <DependentUpon>201703082251325_diagram1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50377</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50377/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

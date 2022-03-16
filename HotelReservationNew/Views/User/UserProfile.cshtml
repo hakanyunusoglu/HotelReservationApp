@@ -1,0 +1,250 @@
+﻿
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@model HotelReservationNew.Models.ViewModels.HomeViewModel
+
+
+
+<div class="container">
+
+
+    @Html.Partial("~/Views/Shared/Partial/_AddCreditCard.cshtml")
+
+    <main id="htlfndr-main-content" role="main">
+        <div class="row htlfndr-user-tabs">
+            <div class="htlfndr-user-person-navigation-wrapper col-sm-4 col-md-3">
+                <div class="htlfndr-user-person-navigation">
+                    <div class="htlfndr-user-avatar"><img alt="user avatar" src="~/images/default.png"></div>
+                    @foreach (HotelReservationNew.Models.Data.User item in Model.Users)
+                    {
+                        <h3 class="htlfndr-user-name">@item.Name @item.Surname</h3>
+                        <h6 class="htlfndr-user-membership">@item.AddDate.ToShortDateString() 'den beri üyesiniz.</h6>
+                    }
+
+                    <ul role="tablist">
+                        <li>
+                            <a href="#htlfndr-user-tab-1"><i class="fa fa-user"></i> Kullanıcı bilgileri</a>
+                        </li>
+                        <li>
+                            <a href="#htlfndr-user-tab-2"><i class="fa fa-clock-o"></i> Rezervasyonlarım</a>
+                        </li>
+                        <li>
+                            <a href="#htlfndr-user-tab-3"><i class="fa fa-credit-card"></i> Kredi Kartlarım</a>
+                        </li>
+
+                        <li>
+                            <a href="#htlfndr-user-tab-5"><i class="fa fa-wrench"></i> Ayarlar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            @Html.Partial("~/Views/Shared/Partial/_ProcessMessages.cshtml")
+
+
+            <div class="htlfndr-user-panel col-sm-8 col-md-9 htlfndr-info-page">
+                <div class="htlfndr-description-table" id="htlfndr-user-tab-1">
+                    @foreach (HotelReservationNew.Models.Data.User item in Model.Users)
+                    {
+                        <table class="htlfndr-personal-info-table">
+                            <tr>
+                                <th class="htlfndr-scope-row">İsim:</th>
+                                <td>@item.Name</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">Soyisim:</th>
+                                <td>@item.Surname</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">Telefon numarası:</th>
+                                <td>@item.PhoneNumber</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">Adres:</th>
+                                <td>@item.Adres</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">İl:</th>
+                                <td>@item.Country</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">İlçe:</th>
+                                <td>@item.Region</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">Posta kodu:</th>
+                                <td>@item.PostalCode</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">Üyelik tarihi:</th>
+                                <td>@item.AddDate</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">Son güncelleme:</th>
+                                <td>@item.UpdatedDate</td>
+                            </tr>
+                            <tr>
+                                <th class="htlfndr-scope-row">Üyelik durumu:</th>
+
+                                @if (item.IsDelete == false)
+                                {
+                                    <td>Aktif </td>
+                                }
+                                else
+                                {
+                                    <td>Hesabınız askıya alınmıştır. </td>
+                                }
+                            </tr>
+                        </table>
+                    }
+
+
+
+
+                </div>
+            </div>
+            <div class="htlfndr-user-panel col-md-9 col-sm-8 htlfndr-booking-page" id="htlfndr-user-tab-2">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Oda</th>
+                            <th>Rezerve Tarihi</th>
+                            <th>Konaklama</th>
+                            <th>Tutar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (HotelReservationNew.Models.Data.Reservation item in Model.Reservations)
+                        {
+
+                            <tr>
+                                <td class="htlfndr-scope-row"><a style="text-decoration:underline" href="@Url.Action("Detail","Room",new {@id=item.RoomID })">@item.Room.Name</a></td>
+
+                                <td data-title="Order date">@item.OrderDate</td>
+                                <td data-title="Data of your stay">@item.ReserveDateBegin.ToShortDateString() - @item.ReserveDateEnd.ToShortDateString()</td>
+                                <td data-title="Cost"><i class="fa fa-try"> @item.Cost</i></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="htlfndr-user-panel col-md-9 col-sm-8 htlfndr-credit-page" id="htlfndr-user-tab-3">
+
+                @foreach (HotelReservationNew.Models.Data.CreditCards item in Model.CreditCards)
+                {
+                    <div class="htlfndr-credit-card">
+                        <div class="htlfndr-but_edit text-right">
+                            <a class="fa fa-edit" data-target="#htlfndr-edit-card" data-toggle="modal" href="#"></a>
+                            <a class="fa fa-remove" href="@Url.Action("DeleteCreditCard","User",new {@id=item.ID })"></a>
+                        </div>
+                        <div class="htlfndr-number-card">
+                            @item.Number
+                        </div>
+                        <div class="htlfndr-valid-card">
+                            Tarih <span>@item.Validate</span>
+                        </div>
+                        <div class="htlfndr-person-card">
+                            İsim<br>
+                            <span class="htlfndr-person-name">@item.HolderName</span><span class="pull-right"><img alt="" src="~/images/card_img.png"></span>
+                        </div>
+                    </div>
+                }
+
+
+
+
+                <div class="htlfndr-credit-card">
+                    <div class="htlfndr-add-card">
+                        <a href="" data-toggle="modal" data-target="#htlfndr-add-card">
+                            <span class="fa fa-plus"></span>Kart Ekle
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="htlfndr-user-panel col-md-9 col-sm-8 htlfndr-setting-page" id="htlfndr-user-tab-5">
+                <div class="htlfndr-setting">
+                    <h2>Güncelle <b>Kullanıcı Bilgileriniz </b></h2>
+
+                    @using (Html.BeginForm("EditProfile", "User", FormMethod.Post, new { @class = "htlfndr-form-setting", @id = "htlfndr-settings-form" }))
+                    {
+                        foreach (HotelReservationNew.Models.Data.User item in Model.Users)
+                        {
+
+
+                            <div class="row">
+                                <div class="col-md-5 htlfndr-form-setting-cols">
+
+                                    <label class="" for="settings-name">İsim</label><br>
+                                    <input id="settings-name" class="htlfndr-input" name="Name" value="@item.Name" type="text"><br>
+
+
+                                    <label class="" for="settings-name">Telefon</label><br>
+                                    <input id="settings-name" class="htlfndr-input" name="PhoneNumber" value="@item.PhoneNumber" type="text"><br>
+
+                                    <label class="" for="settings-country">İl</label><br>
+                                    <input id="settings-country" class="htlfndr-input" name="Country" value="@item.Country" type="text"><br>
+
+                                    <label class="" for="settings-postal">Posta Kodu</label><br>
+                                    <input id="settings-postal" class="htlfndr-input" name="PostalCode" value="@item.PostalCode" type="text"><br>
+
+                                </div>
+                                <div class="col-md-5 htlfndr-form-setting-cols">
+                                    <label class="" for="settings-surname">Soyisim</label><br>
+                                    <input id="settings-surname" class="htlfndr-input" name="Surname" value="@item.Surname" type="text"><br>
+
+                                    <label class="" for="settings-state">Adres</label><br>
+                                    <input id="settings-state" class="htlfndr-input" name="Adres" value="@item.Adres" type="text"><br>
+
+
+                                    <label class="" for="settings-region">İlçe</label><br>
+                                    <input id="settings-region" class="htlfndr-input" name="Region" value="@item.Region" type="text"><br>
+
+                                    <label class="" for="settings-email">Mail Adresi (Değiştirilemez)</label><br>
+                                    <input id="settings-email" class="htlfndr-input" name="Mail" value="@item.Mail" readonly type="text"><br>
+
+
+                                </div>
+
+                                <input class="btn-primary" type="submit" value="Güncelle">
+
+
+
+                            </div>
+
+                        }
+                    }
+                </div>
+                <h2>Güncelle <b>Şifre</b></h2>
+                @using (Html.BeginForm("ChangePassword", "User", FormMethod.Post, new { @class = "htlfndr-form-setting", @id = "htlfndr-settings-form" }))
+                {
+                    foreach (HotelReservationNew.Models.Data.User item in Model.Users)
+                    {
+                        <div class="row">
+                            <div class="col-md-5 htlfndr-form-setting-cols">
+                                <label class="" for="settings-cur-pass">Geçerli şifreniz</label><br>
+                                <input class="htlfndr-input" id="settings-cur-pass" value="@item.Password" name="settings-cur-pass" readonly type="password"><br>
+
+                                <label class="" for="settings-new-pass">Yeni şifre</label><br>
+                                <input class="htlfndr-input" id="settings-new-pass" name="Password" type="password"><br>
+
+                                <label class="" for="settings-new-pass-again">Yeni şifre tekrar</label><br>
+                                <input class="htlfndr-input" id="settings-new-pass-again" name="Password" type="password"><br>
+                            </div>
+                            <div class="col-md-5 htlfndr-form-setting-cols"></div>
+                        </div>
+
+
+                        <input class="btn-primary" type="submit" value="Şifremi güncelle">
+
+                    }
+                }
+
+            </div>
+    </main>
+</div>

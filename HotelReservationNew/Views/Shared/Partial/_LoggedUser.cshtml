@@ -1,0 +1,9 @@
+﻿ 
+    <li id="htlfndr-singin-link">
+        <a href="@Url.Action("UserProfile","User")"><span>Hoşgeldin, @HttpContext.Current.Request.Cookies["SiteUserName"].Value </span></a>
+       
+    </li>
+
+<li><a href="@Url.Action("SignOut","User")">
+    Çıkış Yap
+</a></li>

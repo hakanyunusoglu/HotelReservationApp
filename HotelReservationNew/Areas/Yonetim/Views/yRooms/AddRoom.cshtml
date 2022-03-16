@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "AddRoom";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Yonetim.cshtml";
+}
+<div class="container-fluid">
+    <!-- Begin page heading -->
+    <h1 class="page-heading">ADD ROOM <small>Oda ekleme</small></h1>
+    <!-- End page heading -->
+    <!-- Begin breadcrumb -->
+    <ol class="breadcrumb default square rsaquo sm">
+        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li><a href="#fakelink">Basic elements</a></li>
+        <li class="active">ODA EKLEME</li>
+    </ol>
+    <!-- End breadcrumb -->
+    <!-- BEGIN FORM WIZARD -->
+   
+    @Html.BeginForm("RoomAdd", "yRooms",FormMethod.Post,new {@enctype="multipart/form-data" }){
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="the-box">
+
+                    <div class="form-group">
+                        <label>Room Name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Room Bed</label>
+                        <input type="text" name="bed" class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Room Floor</label>
+                        <input type="text" name="Floor" class="form-control">
+
+                    </div>  
+                    <div class="form-group">
+                        <label>Room Description</label>
+                        <textarea class="summernote-sm" name="Description">Room description</textarea>
+                    </div>
+
+            </div>  
+        </div><!-- /.col-sm-6 -->
+        <div class="col-sm-6">
+            <div class="the-box">
+                   
+                    <div class="form-group">
+                        <label>Max Child</label>
+                        <input type="text" name="MaxChild" class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Max Adult</label>
+                        <input type="text" name="MaxAdult" class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Room Price</label>
+                        <input type="text" name="Price" class="form-control">
+                         
+                    </div>
+
+                    <div class="form-group">
+                        <label>Room Cover Image</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-default btn-file">
+                                    Browse… <input type="file" name="CoverImage" id="CoverImage">
+                                </span>
+                            </span>
+                            <input type="text" class="form-control" readonly="">
+                        </div> 
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-lg"><i class="fa fa-share"></i> Create Room</button>
+               
+                
+            </div> 
+        </div> 
+    </div>
+
+
+     

@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Areas/Yonetim/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- PLUGINS CSS -->
+
+    <link href="~/Areas/Yonetim/assets/plugins/weather-icon/css/weather-icons.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/prettify/prettify.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/magnific-popup/magnific-popup.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/owl-carousel/owl.theme.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/owl-carousel/owl.transitions.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/chosen/chosen.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/icheck/skins/all.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/datepicker/datepicker.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/validator/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/summernote/summernote.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/markdown/bootstrap-markdown.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/datatable/css/bootstrap.datatable.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/morris-chart/morris.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/c3-chart/c3.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/slider/slider.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/salvattore/salvattore.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/toastr/toastr.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/plugins/fullcalendar/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+
+    <!-- MAIN CSS (REQUIRED ALL PAGE)-->
+    <link href="~/Areas/Yonetim/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/css/style.css" rel="stylesheet">
+    <link href="~/Areas/Yonetim/assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top-navbar">
+            <div class="top-navbar-inner">
+
+
+                <div class="logo-brand">
+                    <a href="index.html"><img src="~/images/logo.png" alt="Sentir logo"></a>
+                    <p class="htlfndr-logo-text">Hakan<span>Hotel</span></p></div>
+                <div class="top-nav-content">
+
+                    <!-- Begin button sidebar left toggle -->
+                    <div class="btn-collapse-sidebar-left">
+                        <i class="fa fa-bars"></i>
+                    </div><!-- /.btn-collapse-sidebar-left -->
+                    <!-- End button sidebar left toggle -->
+                   
+                    <!-- Begin button nav toggle -->
+                    <div class="btn-collapse-nav" data-toggle="collapse" data-target="#main-fixed-nav">
+                        <i class="fa fa-plus icon-plus"></i>
+                    </div><!-- /.btn-collapse-sidebar-right -->
+                    <!-- End button nav toggle -->
+                    <!-- Begin user session nav -->
+                    <ul class="nav-user navbar-right">
+                        <li class="dropdown">
+                            <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/Areas/Yonetim/assets/img/avatar/avatar-1.jpg" class="avatar img-circle" alt="Avatar">
+                                Hi, 
+                                 @if (HttpContext.Current.Request.Cookies["User"] != null)
+                                 {
+                                   <strong>  @HttpContext.Current.Request.Cookies["User"].Value </strong>
+                                 }
+                                 else
+                                 {
+                                        <strong></strong>
+                                 }
+
+
+
+
+
+                            </a>
+                            <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
+                              
+                                <li><a href="/Yonetim/yLogin/SignOut">Log out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End user session nav -->
+                    <!-- Begin Collapse menu nav -->
+                    <div class="collapse navbar-collapse" id="main-fixed-nav">
+                      
+                    </div><!-- /.navbar-collapse -->
+                    <!-- End Collapse menu nav -->
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-left sidebar-nicescroller">
+            <ul class="sidebar-menu">
+                <li><a href="/Yonetim/yhome/Index"><i class="fa fa-dashboard icon-sidebar"></i>Dashboard</a></li>
+                <li><a href="/Yonetim/yReservations/Index"><i class="fa fa-book icon-sidebar"></i>Reservations</a></li>
+                <li><a href="/Yonetim/yUsers/Index"><i class="fa fa-users icon-sidebar"></i>Users</a></li>
+                <li><a href="/Yonetim/yRooms/Index"><i class="fa fa-dashboard icon-sidebar"></i>Rooms</a></li>
+                <li><a href="/Yonetim/yMailbox/Index"><i class="fa fa-inbox icon-sidebar"></i>MailBox</a></li>
+            </ul>
+        </div>
+        <div class="page-content">
+            @RenderBody()
+            <footer>
+                &copy; 2014 <a href="#fakelink">Your company</a><br />
+                Design by <a href="http://isohdesign.com" target="_blank">ids</a>. Purchase this item at <a href="http://goo.gl/wSCjxD" target="_blank">Themeforest</a>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/Areas/Yonetim/assets/js/jquery.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/retina/retina.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/nicescroll/jquery.nicescroll.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+
+    <!-- PLUGINS -->
+    <script src="~/Areas/Yonetim/assets/plugins/skycons/skycons.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/prettify/prettify.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/chosen/chosen.jquery.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/icheck/icheck.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/timepicker/bootstrap-timepicker.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/mask/jquery.mask.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/validator/bootstrapValidator.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/datatable/js/bootstrap.datatable.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/summernote/summernote.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/markdown/markdown.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/markdown/to-markdown.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/markdown/bootstrap-markdown.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/slider/bootstrap-slider.js"></script>
+
+    <script src="assets/plugins/toastr/toastr.js"></script>
+
+    <!-- FULL CALENDAR JS -->
+    <script src="~/Areas/Yonetim/assets/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/js/full-calendar.js"></script>
+
+    <!-- EASY PIE CHART JS -->
+    <script src="~/Areas/Yonetim/assets/plugins/easypie-chart/easypiechart.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/easypie-chart/jquery.easypiechart.min.js"></script>
+
+    <!-- KNOB JS -->
+    <!--[if IE]>
+    <script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
+    <![endif]-->
+    <script src="~/Areas/Yonetim/assets/plugins/jquery-knob/jquery.knob.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/jquery-knob/knob.js"></script>
+
+    <!-- FLOT CHART JS -->
+    <script src="~/Areas/Yonetim/assets/plugins/flot-chart/jquery.flot.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/flot-chart/jquery.flot.tooltip.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/flot-chart/jquery.flot.resize.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/flot-chart/jquery.flot.selection.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/flot-chart/jquery.flot.stack.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/flot-chart/jquery.flot.time.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/flot-chart/example.js"></script>
+
+    <!-- MORRIS JS -->
+    <script src="~/Areas/Yonetim/assets/plugins/morris-chart/raphael.min.js"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/morris-chart/morris.min.js"></script>
+
+    <!-- C3 JS -->
+    <script src="~/Areas/Yonetim/assets/plugins/c3-chart/d3.v3.min.js" charset="utf-8"></script>
+    <script src="~/Areas/Yonetim/assets/plugins/c3-chart/c3.min.js"></script>
+
+    <!-- MAIN APPS JS -->
+    <script src="~/Areas/Yonetim/assets/js/apps.js"></script>
+    <script src="~/Areas/Yonetim/assets/js/demo-panel.js"></script>
+
+</body>
+</html>

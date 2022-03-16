@@ -1,0 +1,13 @@
+﻿@if ((string)TempData["Process"] == "Show")
+{
+
+    <div class="alert alert-@TempData["AlertType"]">
+        <i class="fa fa-check"></i>
+
+        @TempData["ProcessMessage"]
+
+    </div>
+}
+
+
+ 

@@ -1,0 +1,27 @@
+﻿@using (Html.BeginForm("AddCreditCard", "User", FormMethod.Post))
+{
+
+    <div id="htlfndr-add-card">
+        <div class="htlfndr-content-card">
+            <div class="htlfndr-card-title clearfix">
+                <a class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" href="#"></a>
+                <h2 class="pull-left">Yeni Kart Ekle</h2>
+            </div>
+            <form class="htlfndr-contact-form" method="post">
+                <h4>Kart Numarası</h4>
+                <input class="htlfndr-input" id="htlfndr-add-credit-card" name="Number" placeholder="XXXX XXXX XXXX XXXX" type="text">
+                <div class="htlfndr-info-card row">
+                    <div class="col-md-9 col-sm-9 htlfndr-card-name">
+                        <h4>Kartın üstündeki isim</h4>
+                        <input class="htlfndr-input" id="htlfndr-new-name-card" name="HolderName" placeholder="Hakan Yunusoglu" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 htlfndr-card-valid">
+                        <h4>Tarih</h4>
+                        <input class="htlfndr-input" id="htlfndr-new-valid-card" name="Validate" placeholder="mm/yy" type="text">
+                    </div>
+                </div><input class="btn-primary" type="submit" value="Kaydet">
+            </form>
+        </div>
+    </div>  
+}
+

@@ -1,0 +1,28 @@
+﻿<div id="htlfndr-sing-in">
+    <div class="htlfndr-content-card">
+        <div class="htlfndr-card-title clearfix">
+            <h2 class="pull-left">Giris Yap</h2>
+        </div>
+        @using (Html.BeginForm("Login", "User", FormMethod.Post, new { id = "htlfndr-sing-in-form" }))
+        {
+            <h4>E-Mail</h4><input class="htlfndr-input" id="mail" name="mail" type="text">
+            <h4>Şifre</h4><input class="htlfndr-input" id="password" name="password" type="password">
+            <div class="clearfix">
+                <span>Hesabınız yok mu ?<a data-target="#htlfndr-sing-up" data-toggle="modal" href="index.htm#"><span>Üye Ol</span></a></span>
+                 
+
+                <input class="pull-right" type="submit" value="Giriş Yap">
+            </div>
+        }
+
+        @if ((string)Session["message"] == "true")
+        {
+            <script>alert("Incorrect Username Or Password")</script>
+            Session["message"] = "false";
+        }
+        else
+        {
+
+        }
+    </div>
+</div>

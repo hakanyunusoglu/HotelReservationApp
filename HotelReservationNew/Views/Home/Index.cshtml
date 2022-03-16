@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using HotelReservationNew.Models.ViewModels
+
+@model HotelReservationNew.Models.ViewModels.HomeViewModel
+
+
+
+<section class="htlfndr-slider-section">
+    <div class="owl-carousel">
+        <div class="htlfndr-slide-wrapper">
+            <img alt="img-1" src="~/images/slider-image-1.jpg">
+            <div class="htlfndr-slide-data container">
+                <div class="htlfndr-slide-rating-stars">
+                    <i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+                </div>
+                <h1 class="htlfndr-slider-title">En uygun fiyatlar</h1>
+                <div class="htlfndr-slider-under-title-line"></div>
+            </div>
+        </div>
+        <div class="htlfndr-slide-wrapper">
+            <img alt="img-2" src="~/images/slider-image-2.jpg">
+            <div class="htlfndr-slide-data container">
+                <div class="htlfndr-slide-rating-stars">
+                    <i class="fa fa-star-o htlfndr-star-color"></i><i class="fa fa-star-o htlfndr-star-color"></i><i class="fa fa-star-o htlfndr-star-color"></i><i class="fa fa-star-o htlfndr-star-color"></i><i class="fa fa-star-o"></i>
+                </div>
+                <h1 class="htlfndr-slider-title">Denize sifir manzara</h1>
+                <div class="htlfndr-slider-under-title-line"></div>
+            </div>
+        </div>
+        <div class="htlfndr-slide-wrapper">
+            <img alt="img-3" src="~/images/slider-image-3.jpg">
+            <div class="htlfndr-slide-data container">
+                <div class="htlfndr-slide-rating-stars">
+                    <i class="fa fa-star-o htlfndr-star-color"></i><i class="fa fa-star-o htlfndr-star-color"></i><i class="fa fa-star-o htlfndr-star-color"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+                </div>
+                <h1 class="htlfndr-slider-title">Konforlu tatil firsati</h1>
+                <div class="htlfndr-slider-under-title-line"></div>
+            </div>
+        </div>
+    </div>
+   
+</section>
+<main role="main">
+    <section class="container-fluid htlfndr-usp-section">
+        <h2 class="htlfndr-section-title htlfndr-lined-title"><span>Bize Özel Seçenekler</span></h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 htlfndr-icon-box">
+                    <img alt="icon" class="htlfndr-icon icon-drinks" height="100" src="~/images/icon-ups-drinks.png" width="100">
+                    <h5 class="htlfndr-section-subtitle">Icecekler</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum eleifend augue, quis rhoncus purus fermentum.</p>
+                </div>
+                <div class="col-sm-4 htlfndr-icon-box">
+                    <img alt="icon" class="htlfndr-icon icon-drinks" height="100" src="~/images/icon-ups-card.png" width="100">
+                    <h5 class="htlfndr-section-subtitle">En Iyi Firsatlar</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum eleifend augue, quis rhoncus purus fermentum.</p>
+                </div>
+                <div class="col-sm-4 htlfndr-icon-box">
+                    <img alt="icon" class="htlfndr-icon icon-drinks" height="100" src="~/images/icon-ups-check.png" width="100">
+                    <h5 class="htlfndr-section-subtitle">Memnuniyet Garantisi</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum eleifend augue, quis rhoncus purus fermentum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+</main>

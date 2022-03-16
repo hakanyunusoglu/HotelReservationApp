@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container">
+    <main class="htlfndr-main-content" id="htlfndr-contact-us" role="main">
+        <div class="row htlfndr-contact-page">
+            <h1 class="text-center">Bize Ulasin!</h1>
+            <div class="htlfndr-section-under-title-line"></div>
+            @using (Html.BeginForm("SendMessage", "Contact", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="#" id="htlfndr-contact-form" method="post" name="htlfndr-contact-form">
+                        <label class="htlfndr-required htlfndr-top-label" for="contact-name">Ad</label>
+                        <input class="htlfndr-review-form-input" name="Name" required type="text">
+                        <label class="htlfndr-required htlfndr-top-label" for="contact-email">E-mail</label>
+                        <input class="htlfndr-review-form-input" name="Email" required type="email">
+                        <label class="htlfndr-required htlfndr-top-label" for="contact-phone">Telefon Numarasi</label>
+                        <input class="htlfndr-review-form-input" name="Phone" pattern="[0-9]{10}" required type="tel">
+                        <label class="htlfndr-required htlfndr-top-label" for="contact-subject">Konu</label>
+                        <input class="htlfndr-review-form-input" name="Subject" required type="text">
+                        <label class="htlfndr-required htlfndr-top-label" for="contact-message">Mesaj</label>
+                        <textarea class="htlfndr-review-form-input" name="Message"></textarea>
+                        <input class="btn-primary" type="submit" name="gonder" value="Gönder">
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="htlfndr-font-24">Iletisime Gectigin Icin Tesekkurler!</h3>
+                    <p>En kısa sürede vermiş olduğunuz telefon numarasından geri dönüş yapacağımızı bilmenizi isteriz.</p>
+                    <h3 class="htlfndr-font-24">Iletisim Bilgileri</h3>
+                    <div class="contact-title">
+                        Calisma Saatleri
+                    </div>
+                    <p>Hotelimiz 7/24 aciktir!</p>
+                    <div class="contact-title">
+                        Adres
+                    </div>
+                    <p>
+                        Hakan Hotel<br>
+                        bilinmeyen adres, TR
+                    </p>
+                    <div class="contact-title">
+                        Telefon
+                    </div>
+                    <p>+9555-555-5555</p>
+                    <div class="contact-title">
+                        E-mail
+                    </div>
+                    <p>info@hakanhotel.com</p>
+                </div>
+            </div>
+            }
+        </div>
+    </main>
+</div>
+
+

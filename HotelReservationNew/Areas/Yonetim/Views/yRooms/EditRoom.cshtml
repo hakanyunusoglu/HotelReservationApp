@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "EditRoom";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Yonetim.cshtml";
+}
+@model HotelReservationNew.Areas.Yonetim.Models.ManagementView.ManageView
+
+
+<div class="container-fluid">
+    <!-- Begin page heading -->
+    <h1 class="page-heading">Form example <small>Details</small></h1>
+    <!-- End page heading -->
+    <!-- Begin breadcrumb -->
+    <ol class="breadcrumb default square rsaquo sm">
+        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li><a href="#fakelink">Reservation Detail</a></li>
+        <li class="active">Details</li>
+    </ol>
+    <!-- End breadcrumb -->
+    <!-- BEGIN FORM WIZARD -->
+    <h4 class="small-title">Reservation Detail</h4>
+
+
+
+    @Html.BeginForm("RoomEdit", "yRooms", FormMethod.Post, new { @enctype = "multipart/form-data" }){
+
+    @foreach (HotelReservationNew.Models.Data.Room item in Model.Rooms)
+    {
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="the-box">
+                    <input type="hidden" value="@item.ID" name="ID" class="form-control">
+                    <div class="form-group">
+                        <label>Room Name</label>
+                        <input type="text" value="@item.Name" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Room Bed</label>
+                        <input type="text" value="@item.Bed" name="bed" class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Room Floor</label>
+                        <input type="text" name="Floor" value="@item.Floor" class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Room Description</label>
+                        <textarea class="summernote-sm" name="Description">@item.Description</textarea>
+                    </div>
+
+                </div>
+            </div><!-- /.col-sm-6 -->
+            <div class="col-sm-6">
+                <div class="the-box">
+
+                    <div class="form-group">
+                        <label>Max Child</label>
+                        <input type="text" name="MaxChild" class="form-control" value="@item.MaxChild">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Max Adult</label>
+                        <input type="text" name="MaxAdult" value="@item.MaxAdult" class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Room Price</label>
+                        <input type="text" name="Price" value="@item.Price" class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Room Cover Image</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-default btn-file">
+                                    Browse… <input type="file" value="@item.CoverImage" name="CoverImage"  id="CoverImage">
+                                </span>
+                            </span>
+                            <input type="text" class="form-control" readonly="">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-lg"><i class="fa fa-share"></i> Update Room</button>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    }
+    }
+
+</div>

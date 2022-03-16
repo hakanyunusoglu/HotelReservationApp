@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Odalar";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using HotelReservationNew.Models.ViewModels
+@{ HomeViewModel rop = new HomeViewModel();}
+@model IEnumerable<HotelReservationNew.Models.Data.Room>
+
+<div class="container">
+    <div class="htlfndr-steps">
+        <ul class="htlfndr-progress">
+            <li class="htlfndr-active-step" style="width: 33%;"><span class="htlfndr-step-number">1</span> <span class="htlfndr-step-description" style="display: inline-block;">ODALAR</span></li>
+            <li style="width: 33%;"><span class="htlfndr-step-number">2</span> <span class="htlfndr-step-description" style="display: inline-block;">DETAY</span></li>
+            <li style="width: 33%;"><span class="htlfndr-step-number">3</span> <span class="htlfndr-step-description" style="display: inline-block;">ÖDEME</span></li>
+        </ul>
+    </div>
+    <div class="row">
+        <aside class="col-sm-4 col-md-3 col-lg-3 htlfndr-sidebar htlfndr-sidebar-in-left" role="complementary">
+            <div class="htlfndr-modify-search-aside widget">
+                <h3 class="widget-title">DETAYLI ARAMA</h3>
+                <div class="htlfndr-widget-content">
+                    @using (Html.BeginForm("SearchEngine", "Room", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        <form id="search-hotel" name="search-hotel">
+                            <label class="htlfndr-input-label" for="htlfndr-city">Max Fiyat</label>
+                            <div class="htlfndr-input-wrapper" id="htlfndr-input-1">
+                                <input class="search-hotel-input" name="Price" placeholder="200 ₺" type="text">
+                            </div>
+                        
+                            <div class="htlfndr-input-wrapper" id="htlfndr-input-4">
+                                <label class="htlfndr-input-label" for="htlfndr-dropdown-button">Oda Tipi</label>
+                                <select class="htlfndr-dropdown" name="RoomType">
+                                    <option>Seçiniz</option>
+                                    <option value="Ekonomik">
+                                        Ekonomik
+                                    </option>
+                                    <option value="Klasik">
+                                        Klasik
+                                    </option>
+                                    <option value="Suit">
+                                        Suit
+                                    </option>
+                                    <option value="Kral">
+                                        Kral
+                                    </option>
+                                </select>
+                            </div>
+
+                            <section class="htlfndr-select-block">
+                                <div class="htlfndr-input-wrapper" id="htlfndr-input-4">
+                                    <label class="htlfndr-input-label" for="htlfndr-dropdown-button">Maximum Adult</label>
+                                    <select class="htlfndr-dropdown" name="MaxAdult">
+                                        <option>Seçiniz</option>
+                                        <option value="1">
+                                            1
+                                        </option>
+                                        <option value="2">
+                                            2
+                                        </option>
+                                        <option value="3">
+                                            3
+                                        </option>
+                                        <option value="4">
+                                            4
+                                        </option>
+                                        <option value="5">
+                                            5
+                                        </option>
+                                        <option value="6">
+                                            6
+                                        </option>
+                                        <option value="7">
+                                            7
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="htlfndr-input-wrapper" id="htlfndr-input-4">
+                                    <label class="htlfndr-input-label" for="htlfndr-dropdown-button">Maximum Child</label>
+                                    <select class="htlfndr-dropdown" name="MaxChild">
+                                     <option>Seçiniz</option>
+                                        <option value="1">
+                                            1
+                                        </option>
+                                        <option value="2">
+                                            2
+                                        </option>
+                                        <option value="3">
+                                            3
+                                        </option>
+                                        <option value="4">
+                                            4
+                                        </option>
+                                        <option value="5">
+                                            5
+                                        </option>
+                                        <option value="6">
+                                            6
+                                        </option>
+                                        <option value="7">
+                                            7
+                                        </option>
+                                        <option value="8">
+                                            8
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="htlfndr-input-wrapper" id="htlfndr-input-4">
+                                    <label class="htlfndr-input-label" for="htlfndr-dropdown-button">Room Floor</label>
+                                    <select class="htlfndr-dropdown" name="Floor">
+                                        <option>Seçiniz</option>
+                                        <option value="1">
+                                            1.Kat
+                                        </option>
+                                        <option value="2">
+                                            2.Kat
+                                        </option>
+                                        <option value="3">
+                                            3.Kat
+                                        </option>
+                                        <option value="4">
+                                            4.Kat
+                                        </option>
+                                    </select>
+                                </div>
+                            </section>
+
+
+                            <input class="btn-primary" type="submit" name="arama" value="ARA">
+                        </form>
+
+                    }
+
+                </div>
+            </div>
+        </aside>
+        @ViewBag.Mesaj
+        <main class="col-sm-8 col-md-9 col-lg-9 htlfndr-search-result htlfndr-grid-view" role="main">
+
+            <section class="htlfndr-search-result-sorting row">
+                <div class="col-md-12">
+
+
+                    <div class="htlfndr-view">
+                        <button class="htlfndr-active" data-placement="top" data-toggle="tooltip" id="htlfndr-grid" role="button" title="Grid view" type="button"><span></span><span></span><span></span><span></span></button><button data-placement="top" data-toggle="tooltip" id="htlfndr-row" role="button" title="Row view" type="button"><span></span><span></span><span></span></button>
+                    </div>
+                </div>
+            </section>
+            <div class="row" id="RoomsListing12">
+
+
+                @Html.Partial("_RoomListItem", Model)
+ 
+            </div>
+
+            <img src="~/images/Loading.gif" style="display:none" id="load-more-article" />
+        </main>
+    </div>
+</div>
+
+<script src="~/js/Rooms.js"></script>

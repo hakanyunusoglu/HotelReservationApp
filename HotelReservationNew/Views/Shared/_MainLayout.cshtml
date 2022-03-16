@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+ 
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="TR" />
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href='http://fonts.googleapis.com/css?family=Play&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/ie.css" rel="stylesheet">
+    <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/owl.carousel.css" rel="stylesheet">
+    <link href="~/css/jquery-ui.css" rel="stylesheet"> 
+    <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+
+    <script src="~/js/jquery-1.11.3.min.js"></script>
+
+    <script src="~/js/jquery-ui.min.js">
+    </script>
+    <script src="~/js/jquery.ui.touch-punch.min.js">
+    </script>
+    <script src="~/js/bootstrap.min.js">
+    </script>
+
+    <script src="~/js/owl.carousel.min.js">
+    </script>
+    <script src="~/js/script.js">
+    </script>
+
+
+    
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <div class="htlfndr-loader-overlay"></div>
+    <div class="htlfndr-wrapper">
+        <header>
+            <div class="htlfndr-top-header">
+                <div class="navbar navbar-default htlfndr-blue-hover-nav">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle collapsed" data-target="#htlfndr-first-nav" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="htlfndr-logo navbar-brand" href="@Url.Action("Index","Home")">
+                                <img alt="Logo" src="~/images/logo.png">
+                                <p class="htlfndr-logo-text">Hakan <span>Hotel</span></p>
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right" id="htlfndr-first-nav">
+                            <ul class="nav navbar-nav htlfndr-singup-block">
+                                @if (HttpContext.Current.Request.Cookies["SiteUser"] == null)
+                                {
+                                    @Html.Partial("~/Views/Shared/Partial/_NotLoginHeader.cshtml")
+                                }
+                                else
+                                {
+                                    @Html.Partial("~/Views/Shared/Partial/_LoggedUser.cshtml")
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="htlfndr-under-header">
+                <nav class="navbar navbar-default">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle collapsed" data-target="#htlfndr-main-nav" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="htlfndr-main-nav">
+                            <ul class="nav navbar-nav">
+                                <li class="active">
+                                    <a href="@Url.Action("Index","Home")">Anasayfa</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Room")">Odalar</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","AboutUs")">Hakkimizda</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Contact")">Iletisim</a>
+                                </li>
+                                <li>
+                                   
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+
+
+            @RenderBody()
+        </header>
+        <footer class="htlfndr-footer">
+         
+            <div class="widget-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <aside class="col-xs-12 col-sm-6 col-md-3 htlfndr-widget-column">
+                            <div class="widget">
+                                <a class="htlfndr-logo navbar-brand" href="@Url.Action("Index","Home")">
+                                    <img alt="Logo" height="20" src="~/images/logo.png" width="30">
+                                    <p class="htlfndr-logo-text">Hakan <span>Hotel</span></p>
+                                </a>
+                                <hr>
+                                <p>En uygun fiyatlarla, denize sıfır plajı ile konfor artık çok yakınınızda!</p><br>
+                                <p>Fırsatlarla dolu bu avantajlı odaları kaçırmak istemiyorsanız, hemen üye olun ve odalarımıza göz gezdirin!</p>
+                            </div>
+                        </aside>
+                        <aside class="col-xs-12 col-sm-6 col-md-3 htlfndr-widget-column">
+                            <div class="widget">
+                                <h3 class="widget-title">Iletişim</h3>
+                                <h5>Adres</h5>
+                                <p>
+                                    Hakan Hotel<br>
+                                    bilinmeyen adress, TR
+                                </p>
+                                <hr>
+                                <h5>Telefon</h5>
+                                <p>+90555-555-5555</p>
+                                <hr>
+                                <h5>E-Mail</h5>
+                                <p>info@hakanhotel.com</p>
+                            </div>
+                        </aside>
+                        <aside class="col-xs-12 col-sm-6 col-md-3 htlfndr-widget-column">
+                            <div class="widget">
+                                <h3 class="widget-title">Sayfalar</h3>
+                                <ul class="menu">
+                                    <li class="menu-item active">
+                                        <a href="@Url.Action("Index","Home")">Anasayfa</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="@Url.Action("Index","Room")">Odalar</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="@Url.Action("Index","AboutUs")">Hakkimizda</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="@Url.Action("Index","Contact")">Iletisim</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                        <aside class="col-xs-12 col-sm-6 col-md-3 htlfndr-widget-column">
+                            <div class="widget">
+                                <h3 class="widget-title">Bizi Takip Edin</h3>
+                                <div class="htlfndr-follow-plugin">
+                                    <a class="htlfndr-follow-button button-facebook" href="index.htm#"></a>
+                                    <a class="htlfndr-follow-button button-twitter" href="#"></a>
+                                    <a class="htlfndr-follow-button button-google-plus" href="#"></a>
+                                    <a class="htlfndr-follow-button button-youtube" href="#"></a>
+                                </div>
+                                <hr>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <div class="htlfndr-copyright">
+                <div class="container" role="contentinfo">
+                    <p style="text-align:center">Copyright 2017 | GRADUATION PROJECT | All Rights Reserved </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+ 
+  
+    @Html.Partial("~/Views/Shared/Partial/_SignUpPartial.cshtml")
+
+    @Html.Partial("~/Views/Shared/Partial/_SignInPartial.cshtml")
+    @*@Html.Partial("~/Views/Shared/Partial/_RecoveryPassword.cshtml")*@
+  
+
+
+
+</body>
+</html> 

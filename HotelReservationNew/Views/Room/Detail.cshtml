@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Oda Detayı";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@model HotelReservationNew.Models.ViewModels.HomeViewModel
+<div class="container">
+    <div class="htlfndr-steps">
+        <ul class="htlfndr-progress">
+            <li>
+                <a href="search-result.html"><span class="htlfndr-step-number">1</span> <span class="htlfndr-step-description">ODALAR</span></a>
+            </li>
+            <li class="htlfndr-active-step"><span class="htlfndr-step-number">2</span> <span class="htlfndr-step-description">DETAYLAR</span></li>
+            <li><span class="htlfndr-step-number">3</span> <span class="htlfndr-step-description">ÖDEME</span></li>
+        </ul>
+    </div>
+    <div class="row htlfndr-page-content htlfndr-room-page">
+        <main class="col-sm-12 col-md-8 col-lg-9 htlfndr-hotel-single-content" id="htlfndr-main-content" role="main">
+            <article class="post htlfndr-room-post">
+                @foreach (HotelReservationNew.Models.Data.Room item in Model.Rooms)
+                {
+                    <header>
+                        <h1 class="htlfndr-entry-title">@item.Name</h1><a href="hotel-page-v1.html"><span>/ Hakan Hotel</span></a>
+                    </header>
+                }
+
+
+
+                <div class="owl-carousel" id="htlfndr-room-slider">
+                    @foreach (HotelReservationNew.Models.Data.RoomPicture item in Model.RoomPictures)
+                    {
+                        <div class="htlfndr-room-slide-wrapper"><img alt="room picture" src="@item.Url"></div>
+
+                    }
+                </div>
+
+                <div class="htlfndr-entry-content" style="margin-top:20px">
+                    @foreach (HotelReservationNew.Models.Data.Room item in Model.Rooms)
+                    {
+
+                        <p>@Html.Raw(item.Description)</p>
+                    }
+
+
+                </div>
+
+
+
+
+
+            </article>
+        </main>
+        <aside class="col-sm-12 col-md-4 col-lg-3 htlfndr-sidebar htlfndr-sidebar-in-right" id="htlfndr-right-sidebar" role="complementary">
+            @foreach (HotelReservationNew.Models.Data.Room item in Model.Rooms)
+            {
+
+                <div class="widget htlfndr-hotel-visit-card">
+                    <div class="htlfndr-widget-main-content htlfndr-widget-padding">
+
+                        <div class="htlfndr-hotel-price">
+                            <span>Fiyat</span> <span>1 gecelik</span><span class="htlfndr-cost"><i class="fa fa-try"></i> @item.Price</span>
+                        </div>
+
+
+                    </div>
+                </div>
+                if (item.Availability == true)
+                {
+                    <a href="@Url.Action("Payment","Room",new {@id=item.ID })"><input style="cursor:pointer" class="htlfndr-book-now-button" value="Rezervasyon" ></a>
+                }
+                else
+                {
+                    <a href="#"><input style="cursor:pointer" class="htlfndr-book-now-button" value="Oda dolu"></a>
+                }
+
+            
+
+            }
+
+
+
+            <div class="widget htlfndr-room-details">
+                @foreach (HotelReservationNew.Models.Data.Room item in Model.Rooms)
+                {
+                    <div class="htlfndr-widget-main-content htlfndr-widget-padding" id="htlfndr-accordion-1">
+                        <h2 class="widget-title htlfndr-accordion-title">Oda detayları</h2>
+                        <div class="htlfndr-accordion-inner">
+                            <p class="htlfndr-details"><span>Yataklar:</span> <span>@item.Bed</span></p>
+                            <p class="htlfndr-details"><span>Kat:</span> <span>@item.Floor</span></p>
+                            <p class="htlfndr-details"><span>Maksimum yetişkin sayısı:</span> <span>@item.MaxAdult</span></p>
+                            <p class="htlfndr-details"><span>Maksimum çocuk sayısı:</span> <span>@item.MaxChild</span></p>
+                            <ul class="htlfndr-details-list">
+                                <li>Ücretsiz kablolu internet</li>
+                                <li>Kahve/Çay makinesi</li>
+                                <li>Klima</li>
+                                <li>Televizyon</li>
+                                <li>Ücretsiz gazete</li>
+                                <li>Saç kurutma makinesi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                }
+            </div>
+
+        </aside>
+    </div>
+
+
+
+</div>

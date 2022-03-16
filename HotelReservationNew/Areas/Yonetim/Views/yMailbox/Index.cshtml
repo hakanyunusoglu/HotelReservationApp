@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Yonetim.cshtml";
+}
+
+@model HotelReservationNew.Areas.Yonetim.Models.ManagementView.ManageView
+
+
+<div class="container-fluid">
+    <!-- Begin page heading -->
+    <h1 class="page-heading">Mails <small>Displaying MailBox</small></h1>
+    <!-- End page heading -->
+    <!-- Begin breadcrumb -->
+    <ol class="breadcrumb default square rsaquo sm">
+        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li><a href="#fakelink">Mails</a></li>
+        <li class="active">Listing</li>
+    </ol>
+    <div class="the-box no-border">
+        <h4 class="small-title">MailBox</h4>
+
+        <div class="btn-toolbar top-table" role="toolbar">
+            <div class="btn-group">
+                <form role="form">
+                    <select class="form-control">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                        <option>50</option>
+                    </select>
+                </form>
+            </div>
+
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#fakelink">Action</a></li>
+                    <li><a href="#fakelink">Another action</a></li>
+                    <li><a href="#fakelink">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#fakelink">Separated link</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group pull-right">
+                <form role="form">
+                    <input type="text" class="form-control" placeholder="Search member...">
+                </form>
+
+            </div><!-- /.btn-group .pull-right -->
+        </div><!-- /.btn-toolbar top-table -->
+
+        <div class="table-responsive">
+            <table class="table table-th-block table-hover" border="1">
+                <thead>
+                    <tr>
+                        <th style="width: 30px;">ID</th>
+                        <th>İsim</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Konu</th>
+                        <th>Mesaj</th>
+                        <th>Add Date</th>
+                        <th>Update Date</th>
+                        <th>IsDelete</th>
+                        <th>Status</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (HotelReservationNew.Models.Data.Contact item in Model.Contacts)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Subject</td>
+                            <td>@item.Message</td>
+                            <td>@item.AddDate</td>
+                            <td>@item.UpdatedDate</td>
+                            <td>@item.IsDelete</td>
+
+                            <td>
+                                @if (item.IsDelete == false)
+                                {
+                                    <span class="label label-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-danger">Deaktif</span>
+                                }
+                            </td>
+                            <td>
+
+                                &nbsp;&nbsp;  <a href="/Yonetim/yMailbox/DeleteMail/@item.ID"><i class="fa fa-ban"></i></a>&nbsp;&nbsp;
+                                <a href="/Yonetim/yMailbox/ActivateMail/@item.ID"><i class="fa fa-check"></i></a>
+
+                            </td>
+                        </tr>
+
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+ 
